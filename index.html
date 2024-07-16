@@ -1,13 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Memory Game</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <main>
+      <nav>
+        <h1>ENI - <strong>MEMORY</strong> - Accueil</h1>
+        <ul>
+          <a href="index.html"><li>Accueil</li></a>
+          <a href="incription.html"><li>S'inscrire</li></a>
+          <a href="connexion.html"><li>Se connecter</li></a>
+          <a href="profil.html"><li>Profil</li></a>
+          <a href="jouer.html"><li>Jouer</li></a>
+        </ul>
+      </nav>
+      <section>
+        <div>
+          <p>
+            Bienvenue sur le site du Memory de l'ENI. <br />
+            Venez jouer avec nous et faites le meilleur score possible.
+          </p>
+          <br />
+        </div>
+        <h2>Règle du jeu :</h2>
+        <div>
+          <ul>
+            <li>
+              Retourner deux cartes. Si les images sont identiques, le jeu
+              laisse les cartes visibles.
+            </li>
+            <li>
+              Si les images sont différentes, les cartes se retournent faces
+              cachées là où elles étaient.
+            </li>
+            <li>
+              La parite est terminées lorsque toutes les cartes ont été
+              assemblées par paires.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <img src="image/memory_detail.png" alt="memory réalisé" />
+        </div>
+        <p>
+          Si vous voulez vous souvenir de votre score. Inscrivez vous via le
+          formulaire.
+        </p>
+        <p>Le jeu garde les <strong>5 meilleures</strong> scores.</p>
+        <p>
+          Si vous voulez relancer une partie cliquez sur
+          <strong>la barre d'espace</strong>.
+        </p>
+      </section>
+    </main>
     <script type="module" src="js/script.js"></script>
   </body>
 </html>
