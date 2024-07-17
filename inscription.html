@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main>
+        <h1>ENI - <strong>MEMORY</strong> - Accueil</h1>
+      <nav>
+        <ul>
+          <a href="index.html"><li>Accueil</li></a>
+          <a href="inscription.html"><li>S'inscrire</li></a>
+          <a href="connexion.html"><li>Se connecter</li></a>
+          <a href="profil.html"><li>Profil</li></a>
+          <a href="jouer.html"><li>Jouer</li></a>
+        </ul>
+      </nav>
+      <section>
+        <div class="container">
+			<h1 class="inscription.">Inscrivez-vous</h1>
+			<form id="contactForm" class="form">
+				<label for="nom">Nom d'utilisatueur</label><br>
+				<input type="text" id="nom" name="nom" class="input" required placeholder="Entre 8 et 20 caractères, sans caractères spéciales et avec au moins une lettre" pattern="^[a-zA-Z\\d*]{8,20}$"/>
+				<div class="message erreur" id="erreur-nom"></div>
+
+				<label for="mail">Entrez votre email</label><br>
+				<input type="email" id="mail" name="mail" class="input" required placeholder="Votre email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"/>
+				<div class="message erreur" id="erreur-mail"></div>
+
+				<label for="motdepasse">Mot de passe</label><br>
+				<input
+					type="password"
+					id="motdepasse"
+					name="motdepasse"
+					class="input"
+					required
+					placeholder="Au moins 8 caractères avec au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère speciale '#, ?, !'"
+					pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+				/>
+				<div class="message erreur" id="erreur-motdepasse"></div>
+
+				<label for="motdepasse">Confirmer le mot de passe</label><br>
+				<input
+					type="password"
+					id="motdepasse"
+					name="motdepasse"
+					class="input"
+					required
+					placeholder="Confirmez votre mot de passe"
+				/>
+				<div class="message erreur" id="erreur-motdepasse"></div>
+
+				<button type="submit" class="btn">Création du compte</button>
+				<button type="reset" class="btn">Annuler</button>
+			</form>
+			<div class="message succes" id="message-succes"></div>
+		</div>
+      </section>
+    </main>
+    <script type="module" src="js/script.js"></script>
+  </body>
+</html>

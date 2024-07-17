@@ -1,6 +1,6 @@
 main {
-  margin: 10% auto;
-  padding: 10% auto;
+  margin: 10vh auto;
+  padding: 10vh auto;
   height: 80vh;
   width: 80vw;
   font-family: Arial, Helvetica, sans-serif;
@@ -18,7 +18,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 5%;
+  margin-bottom: 5vh;
 }
 ul {
   list-style-type: none;
@@ -40,7 +40,25 @@ section {
   justify-content: baseline;
   margin-bottom: 5%;
 }
-
+#memory{
+  height: 40vh;
+  width: 35vw;
+}
+input, button{
+  margin: 1vh;
+  border: #000000 solid 5px;
+  height: 5vh;
+  width: 45vw;
+  border-radius: 5%;
+  border: none;
+  background-color: rgba(140, 210, 126, 0.527);
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 * {
   padding: 0;
   margin: 0;
@@ -84,7 +102,7 @@ body {
 }
 .memory-card.flip {
   transform: rotateY(180deg);
-  transition: transform 2s;
+  transition: transform 1s;
 }
 
 .front-face,
@@ -99,6 +117,85 @@ body {
 }
 
 .front-face {
-  
   transform: rotateY(180deg);
 }
+.end {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.blackout {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s ease-in-out, opacity 0.5s ease-in-out;
+   
+}
+/* const cards = document.querySelectorAll(".memory-card");
+
+let hasFlippedCard = false;
+let lockBoard = false;
+let firstCard, secondCard;
+
+function flipCard() {
+  if (lockBoard) return;
+  if (this === firstCard) return;
+
+  this.classList.add("flip");
+
+  if (!hasFlippedCard) {
+    hasFlippedCard = true;
+    firstCard = this;
+    console.log(firstCard.dataset.framework);
+
+    return;
+  }
+
+  secondCard = this;
+  console.log(secondCard.dataset.framework);
+  checkForMatch();
+}
+
+function checkForMatch() {
+  let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
+
+  if (isMatch) {
+    disableCards();
+  } else {
+    unflipCards();
+  }
+}
+
+function disableCards() {
+  firstCard.classList.add("end");
+  secondCard.classList.add("end");
+  firstCard.removeEventListener("click", flipCard);
+  secondCard.removeEventListener("click", flipCard);
+
+  resetBoard();
+}
+
+function unflipCards() {
+  lockBoard = true;
+
+  setTimeout(() => {
+    firstCard.classList.remove("flip");
+    secondCard.classList.remove("flip");
+
+    resetBoard();
+  }, 1500);
+}
+
+function resetBoard() {
+  [hasFlippedCard, lockBoard] = [false, false];
+  [firstCard, secondCard] = [null, null];
+}
+
+(function shuffle() {
+  cards.forEach((card) => {
+    let randomPos = Math.floor(Math.random() * 12);
+    card.style.order = randomPos;
+  });
+})();
+
+cards.forEach((card) => card.addEventListener("click", flipCard)); */
