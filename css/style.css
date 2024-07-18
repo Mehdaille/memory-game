@@ -46,11 +46,9 @@ section {
 }
 input, button{
   margin: 1vh;
-  border: #000000 solid 5px;
+  border: #000000 solid 2px;
   height: 5vh;
   width: 45vw;
-  border-radius: 5%;
-  border: none;
   background-color: rgba(140, 210, 126, 0.527);
 }
 .container{
