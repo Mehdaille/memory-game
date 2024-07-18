@@ -22,7 +22,7 @@
       <section>
         <div class="container">
 			<h1 class="inscription.">Inscrivez-vous</h1>
-			<form id="contactForm" class="form">
+			<form id="contactForm" class="form" action method="POST">
 				<label for="nom">Nom d'utilisatueur</label><br>
 				<input type="text" id="nom" name="nom" class="input" required placeholder="Entre 8 et 20 caractères, sans caractères spéciales et avec au moins une lettre" pattern="^[a-zA-Z\\d*]{8,20}$"/>
 				<div class="message erreur" id="erreur-nom"></div>
@@ -43,14 +43,15 @@
 				/>
 				<div class="message erreur" id="erreur-motdepasse"></div>
 
-				<label for="motdepasse">Confirmer le mot de passe</label><br>
+				<label for="confirnmMotdepasse">Confirmer le mot de passe</label><br>
 				<input
 					type="password"
-					id="motdepasse"
-					name="motdepasse"
+					id="confirnmMotdepasse"
+					name="confirnmMotdepasse"
 					class="input"
 					required
 					placeholder="Confirmez votre mot de passe"
+					pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
 				/>
 				<div class="message erreur" id="erreur-motdepasse"></div>
 
@@ -61,6 +62,6 @@
 		</div>
       </section>
     </main>
-    <script type="module" src="js/script.js"></script>
+    <script type="module" src="js/app.js"></script>
   </body>
 </html>
