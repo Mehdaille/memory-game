@@ -18,6 +18,8 @@ function shuffle() {
 
 shuffle(); // Mélange les cartes au début du jeu
 
+cards.forEach((card) => card.addEventListener("click", flipCard)); // Ajoute l'écouteur d'événement de clic à chaque carte
+
 function flipCard() {
   if (lockBoard) return; // Empêche de retourner une carte si le tableau est verrouillé
   if (this === firstCard) return; // Empêche de retourner la même carte deux fois
@@ -56,14 +58,16 @@ function disableCards() {
     secondCard.removeEventListener("click", flipCard); // Désactive l'écouteur d'événements pour la deuxième carte
     firstCard.classList.remove("flip");
     secondCard.classList.remove("flip");
+    
+  }, 1000); // Délai d'une seconde
+
+  setTimeout(() => {
     firstCard.classList.add("end"); // Ajoute la classe "end" pour indiquer que la carte a été trouvée
     secondCard.classList.add("end");
-
     resetBoard(); // Réinitialise le tableau
     checkForWin(); // Vérifie si toutes les cartes ont été trouvées
-  }, 1000); // Délai d'une seconde
+  }, 1500); // Délai d'une seconde et demi
 }
-
 function unflipCards() {
   lockBoard = true; // Verrouille le tableau pendant que les cartes sont retournées
 
@@ -72,7 +76,7 @@ function unflipCards() {
     secondCard.classList.remove("flip"); // Retourne la deuxième carte
 
     resetBoard(); // Réinitialise le tableau
-  }, 1500); // Délai d'une seconde et demie
+  }, 1000); // Délai d'une seconde et demie
 }
 
 function resetBoard() {
@@ -86,22 +90,11 @@ function resetGame() {
     card.classList.remove("end"); // Enlève l'indicateur de cartes trouvées
     card.addEventListener("click", flipCard); // Réactive les écouteurs d'événements
   });
-  game.classList.add("blackout"); // Ajoute un effet visuel
-  setTimeout(() => {
-    game.classList.remove("blackout"); // Enlève l'effet visuel après une seconde
-  }, 1000);
   shuffle(); // Mélange les cartes
   resetBoard(); // Réinitialise le tableau
   cptCoup = 0; // Réinitialise le compteur de coups
   document.getElementById("score").innerHTML = `${cptCoup}`; // Réinitialise l'affichage du compteur de coups
 }
-
-document.addEventListener("keydown", function (event) {
-  if (event.code === "Space") {
-    resetGame(); // Réinitialise le jeu lorsque la barre d'espace est pressée
-  }
-});
-
 function checkForWin() {
   let allEnded = true;
   cards.forEach((card) => {
@@ -111,12 +104,26 @@ function checkForWin() {
   });
 
   if (allEnded) {
-    let victoryDiv = document.getElementById("victory-message");
+    let victoryDiv = document.getElementById("victory-message ");
     victoryDiv.innerHTML = `Bravo vous avez remportez la partie en : ${cptCoup} coups !`; // Affiche un message de victoire
   }
 }
 
-cards.forEach((card) => card.addEventListener("click", flipCard)); // Ajoute l'écouteur d'événement de clic à chaque carte
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Space") {
+    resetGame(); // Réinitialise le jeu lorsque la barre d'espace est pressée
+    game.classList.add("blackout"); // Ajoute un effet visuel
+    setTimeout(() => {
+      game.classList.remove("blackout");
+      game.classList.add("display"); // Enlève l'effet visuel après une seconde
+    }, 2000);
+    let victoryDiv = document.getElementById("victory-message");
+    victoryDiv.innerHTML = ``;
+    
+  } 
+});
+
+
 
 document.addEventListener("keydown", function (event) {
   if (event.code === "Escape") {
