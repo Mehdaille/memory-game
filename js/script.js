@@ -1,4 +1,3 @@
-
 // Sélectionne tous les éléments avec la classe "memory-card" et les stocke dans la variable "cards"
 const cards = document.querySelectorAll(".memory-card");
 // Sélectionne l'élément avec la classe "memory-game" et le stocke dans la variable "game"
@@ -47,7 +46,6 @@ function checkForMatch() {
   } else {
     unflipCards();
   }
-  
 }
 
 function disableCards() {
@@ -82,8 +80,6 @@ function resetBoard() {
   [firstCard, secondCard] = [null, null]; // Réinitialise les variables firstCard et secondCard à null
 }
 
-
-
 function resetGame() {
   cards.forEach((card) => {
     card.classList.remove("flip"); // Retourne toutes les cartes
@@ -105,7 +101,6 @@ document.addEventListener("keydown", function (event) {
     resetGame(); // Réinitialise le jeu lorsque la barre d'espace est pressée
   }
 });
-
 
 function checkForWin() {
   let allEnded = true;
